@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "yardstickprototypeb8cee258": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

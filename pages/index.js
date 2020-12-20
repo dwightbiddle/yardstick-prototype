@@ -1,7 +1,23 @@
+
+import { useState, useEffect } from 'react'
+import { Auth } from 'aws-amplify'
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Link from 'next/link'
 
-export default function Home() {
+function Login() {
+  const [user, setUser] = useState(null)
+  useEffect(() => {
+    // Access the user session on the client
+    Auth.currentAuthenticatedUser()
+      .then(user => {
+        console.log("User: ", user)
+        setUser(user)
+      })
+      .catch(err => setUser(null))
+  }, [])
   return (
     <div className={styles.container}>
       <Head>
@@ -9,7 +25,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <AmplifySignOut/>
+
       <main className={styles.main}>
+        
+
         <h1 className={styles.title}>
           Welcome to Yard Stick!
         </h1>
@@ -19,24 +39,27 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Plan &rarr;</h3>
-            <p>Let's figure out how to prepare</p>
-          </a>
+          <Link href="/plan/plan-input">
+            <a className={styles.card}>
+              <h3>Plan &rarr;</h3>
+              <p>Let's figure out how to prepare</p>
+            </a>
+          </Link>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Measure &rarr;</h3>
-            <p>Time to get sampling!</p>
-          </a>
+          <Link href="/measure/measure-input">
+            <a className={styles.card}>
+              <h3>Measure &rarr;</h3>
+              <p>Time to get sampling!</p>
+            </a>
+          </Link>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Analyze &rarr;</h3>
-            <p>Tools to help you understand the impact of your practices</p>
-          </a>
-
+          <Link href="/analyze/analyze-input">
+            <a className={styles.card}>
+              <h3>Analyze &rarr;</h3>
+              <p>Tools to help you understand the impact of your practices</p>
+            </a>
+          </Link>
+          
           <a
             href="https://www.linkedin.com/in/christolles/"
             className={styles.card}
@@ -62,3 +85,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default withAuthenticator(Login)

@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-yardstickprototype-dev-221802-authRole",
+      "UnauthRoleArn": "arn:aws:iam::042496217627:role/amplify-yardstickprototype-dev-221802-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::042496217627:role/amplify-yardstickprototype-dev-221802-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-yardstickprototype-dev-221802-deployment",
+      "UnauthRoleName": "amplify-yardstickprototype-dev-221802-unauthRole",
+      "StackName": "amplify-yardstickprototype-dev-221802",
+      "StackId": "arn:aws:cloudformation:us-east-1:042496217627:stack/amplify-yardstickprototype-dev-221802/a4eef320-40df-11eb-80e5-0e797c2a6a1d",
+      "AmplifyAppId": "d2lvvjzbivbnug"
+    },
+    "categories": {
+      "auth": {
+        "yardstickprototypeb8cee258": {}
+      }
+    }
+  }
+}
