@@ -14,7 +14,7 @@ export default function MeasureInput() {
           </h1>
 
           <p className={styles.description}>
-            Ensure your device's clock is synchronized with your device
+            Ensure your sampling device's clock is synchronized with your device
           </p>
           <Image
             src="/map.png"
